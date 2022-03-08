@@ -13,4 +13,7 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "PetSendbox"
+
 include ':app'
+
+include ':app_currency'
