@@ -3,7 +3,7 @@ package ru.zolotarev.tcurrency.di
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.create
-import ru.zolotarev.tcurrency.data.CurrencyApi
+import ru.zolotarev.tcurrency.data.network.CurrencyApi
 
 
 object DIContainer {

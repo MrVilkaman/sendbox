@@ -1,13 +1,4 @@
-package ru.zolotarev.tcurrency.data
-
-import retrofit2.http.GET
-
-
-interface CurrencyApi {
-
-    @GET("v1/currency_rates?from=USD&to=RUB")
-    suspend fun currencyRates(): CurrencyResponse
-}
+package ru.zolotarev.tcurrency.data.models
 
 class CurrencyResponse(
     val trackingId: String,

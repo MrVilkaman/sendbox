@@ -6,8 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import ru.zolotarev.tcurrency.domain.GetCurrentCurrencyUseCase
-import ru.zolotarev.tcurrency.ui.currency.UiModel
+import ru.zolotarev.tcurrency.domain.usecase.GetCurrentCurrencyUseCase
 
 
 class CurrencyViewModel(
@@ -21,18 +20,7 @@ class CurrencyViewModel(
 
         viewModelScope.launch(Dispatchers.Main) {
 
-            val first = getCurrency()
-
-            val spred = (first.sell - first.buy) / first.sell * 100
-            val usdCoast = (first.sell + first.buy) / 2
-            _uiLiveData.value = UiModel(
-
-                usdCoast,
-                1.1,
-                first.sell,
-                spred,
-                first.buy,
-            )
+            _uiLiveData.value = getCurrency().toUiModel()
         }
     }
 }
