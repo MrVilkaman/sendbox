@@ -1,4 +1,4 @@
-package ru.zolotarev.tcurrency.ui
+package ru.zolotarev.tcurrency.ui.currency
 
 import android.os.Bundle
 import androidx.activity.viewModels
@@ -6,11 +6,12 @@ import androidx.appcompat.app.AppCompatActivity
 import by.kirich1409.viewbindingdelegate.viewBinding
 import ru.zolotarev.tcurrency.R
 import ru.zolotarev.tcurrency.databinding.ActivityMainBinding
+import ru.zolotarev.tcurrency.ui.format
 
 class MainActivity : AppCompatActivity() {
 
 
-    private val vm: CurrencyViewModel by viewModels()
+    private val vm: CurrencyViewModel by viewModels { CurrencyViewModelFactory() }
 
     private val binding by viewBinding(ActivityMainBinding::bind)
 
@@ -33,5 +34,3 @@ class MainActivity : AppCompatActivity() {
         binding.eurusd.text = "EUR / USD = $eurusd"
     }
 }
-
-fun Double.format(digits: Int) = "%.${digits}f".format(this)

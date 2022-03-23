@@ -1,4 +1,4 @@
-package ru.zolotarev.tcurrency.ui
+package ru.zolotarev.tcurrency.ui.currency
 
 data class UiModel(
     val usdCoast: Double,

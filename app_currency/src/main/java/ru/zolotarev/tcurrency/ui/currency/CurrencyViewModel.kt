@@ -1,4 +1,4 @@
-package ru.zolotarev.tcurrency.ui
+package ru.zolotarev.tcurrency.ui.currency
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import ru.zolotarev.tcurrency.domain.GetCurrentCurrencyUseCase
+import ru.zolotarev.tcurrency.ui.currency.UiModel
 
 
 class CurrencyViewModel(
