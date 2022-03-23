@@ -13,15 +13,26 @@ class CurrencyViewModel(
     private val getCurrency: GetCurrentCurrencyUseCase
 ) : ViewModel() {
 
-    private val _uiLiveData: MutableLiveData<UiModel> = MutableLiveData()
-    val uiLiveData: LiveData<UiModel> get() = _uiLiveData
+    private val uiLiveDataMutable: MutableLiveData<UiModel> = MutableLiveData()
+    private val isRefreshingMutable: MutableLiveData<Boolean> = MutableLiveData(false)
+
+    val uiLiveData: LiveData<UiModel> get() = uiLiveDataMutable
+    val isRefreshing: LiveData<Boolean> get() = isRefreshingMutable
 
     init {
+        onLoadCurrency()
+    }
 
+    private fun onLoadCurrency() {
         viewModelScope.launch(Dispatchers.Main) {
-
-            _uiLiveData.value = getCurrency().toUiModel()
+            uiLiveDataMutable.value = getCurrency().toUiModel()
+            isRefreshingMutable.value = false
         }
+    }
+
+    fun onRefresh() {
+        isRefreshingMutable.value = true
+        onLoadCurrency()
     }
 }
 

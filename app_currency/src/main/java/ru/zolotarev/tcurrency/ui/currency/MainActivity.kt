@@ -19,7 +19,14 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        binding.refresh.setOnRefreshListener { vm.onRefresh() }
+
+    }
+
+    override fun onStart() {
+        super.onStart()
         vm.uiLiveData.observe(this, ::update)
+        vm.isRefreshing.observe(this) { binding.refresh.isRefreshing = it }
     }
 
     private fun update(ui: UiModel) {

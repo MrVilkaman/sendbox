@@ -8,3 +8,12 @@ data class CurrentCurrencyModel(
     val spred: Double,
     val usdSold: Double,
 )
+
+data class CurrencyValue(
+    val buy: Double,
+    val sell: Double,
+) {
+    val spred: Double = (sell - buy) / sell * 100
+
+    val coast = (sell + buy) / 2
+}

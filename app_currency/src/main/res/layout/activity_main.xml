@@ -1,41 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/refresh"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.currency.MainActivity">
+    android:layout_height="match_parent">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.currency.MainActivity">
 
-    <TextView
-        android:id="@+id/title1"
-        android:layout_width="wrap_content"
-        android:layout_height="242dp"
-        android:gravity="bottom"
-        tools:text="1 USD = 122.00 RUB"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/title1"
+            android:layout_width="wrap_content"
+            android:layout_height="242dp"
+            android:gravity="bottom"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="1 USD = 122.00 RUB" />
 
-    <TextView
-        android:id="@+id/value1"
-        android:layout_width="wrap_content"
-        android:layout_height="242dp"
-        android:gravity="center"
-        android:text="покупаю 1$ за\t\t спред\t\t продаю 1$ за\n
+        <TextView
+            android:id="@+id/value1"
+            android:layout_width="wrap_content"
+            android:layout_height="242dp"
+            android:gravity="center"
+            tools:text="покупаю 1$ за\t\t спред\t\t продаю 1$ за\n
 131.15 RUB\t\t\t13.95%\t\t\t112.85 RUB"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title1" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title1" />
 
-    <TextView
-        android:id="@+id/eurusd"
-        android:layout_width="wrap_content"
-        android:layout_height="243dp"
-        android:text="EUR / USD = 1.0084"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/value1" />
+        <TextView
+            android:id="@+id/eurusd"
+            android:layout_width="wrap_content"
+            android:layout_height="243dp"
+            tools:text="EUR / USD = 1.0084"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/value1" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
