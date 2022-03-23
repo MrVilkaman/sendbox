@@ -1,5 +1,6 @@
 package ru.zolotarev.tcurrency.ui.currency
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import by.kirich1409.viewbindingdelegate.viewBinding
@@ -29,6 +30,7 @@ class MainActivity : AppCompatActivity() {
         vm.isRefreshing.observe(this) { binding.refresh.isRefreshing = it }
     }
 
+    @SuppressLint("SetTextI18n")
     private fun update(ui: UiModel) {
         val (usdCoast, eurusd, usdBuy, spred, usdSold) = ui
 
@@ -38,6 +40,6 @@ class MainActivity : AppCompatActivity() {
         binding.value1.text = "покупаю 1\$ за\t\t спред\t\t продаю 1\$ за\n" +
             "$usdBuy RUB\t\t\t${spred.format(2)}%\t\t\t$usdSold RUB"
 
-        binding.eurusd.text = "EUR / USD = $eurusd"
+        binding.eurusd.text = "EUR / USD = ${eurusd.format(3)}"
     }
 }
