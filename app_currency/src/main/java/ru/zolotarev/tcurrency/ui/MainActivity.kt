@@ -27,8 +27,11 @@ class MainActivity : AppCompatActivity() {
 
         binding.title1.text = "1 USD = $usdCoast RUB"
 
-        binding.value1.text = "покупаю 1\$ за\t\t спред\t\t продаю 1\$ за\n$usdBuy RUB\t\t\t$spred%\t\t\t$usdSold RUB"
+        binding.value1.text = "покупаю 1\$ за\t\t спред\t\t продаю 1\$ за\n" +
+            "$usdBuy RUB\t\t\t${spred.format(2)}%\t\t\t$usdSold RUB"
 
         binding.eurusd.text = "EUR / USD = $eurusd"
     }
 }
+
+fun Double.format(digits: Int) = "%.${digits}f".format(this)
